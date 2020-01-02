@@ -1,0 +1,9 @@
+Description=CNC.js service
+After=docker.service
+
+[Service]
+ExecStart=/usr/bin/docker run --privileged --rm --detach --volume /opt/cncjs:/cncjs --publish 80:8000 cncjs-docker:latest
+
+[Install]
+WantedBy=multi-user.target
+Alias=cncjs.service 
